@@ -1,6 +1,7 @@
 {
   "name": "storybook-utils",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -11,10 +12,7 @@
   "devDependencies": {
     "prettier": "^3.6.2",
     "turbo": "^2.6.1",
-    "typescript": "5.9.2"
-  },
-  "engines": {
-    "node": ">=18"
+    "typescript": "^5.9.3"
   },
   "packageManager": "npm@10.9.0",
   "workspaces": [
