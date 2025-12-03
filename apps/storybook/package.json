@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "react-dom": ">=18",
+    "storybook-w3c": "*"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.1.0",

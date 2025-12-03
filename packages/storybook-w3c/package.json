@@ -1,0 +1,30 @@
+{
+  "name": "storybook-w3c",
+  "type": "module",
+  "author": "faebeee",
+  "license": "ISC",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "exports": {
+    "./*": "./*",
+    "./manager": "./lib/manager.tsx"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "storybook": "^10.1.4"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*"
+  },
+  "storybook": {
+    "displayName": "storybook-w3c",
+    "unsupportedFrameworks": [],
+    "supportedFrameworks": [
+      "React",
+      "Vue",
+      "Angular"
+    ]
+  }
+}

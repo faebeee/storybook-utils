@@ -6,7 +6,21 @@ const config: StorybookConfig = {
   stories: [
     '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'
   ],
-  framework: getAbsolutePath("@storybook/react-vite")
+  addons: [
+    // "storybook-w3c",
+    // '../../../packages/storybook-w3c/lib/manager.tsx'
+    import.meta.resolve('./local-preset.ts')
+
+  ],
+  // framework: getAbsolutePath("@storybook/react-vite")
+  'framework': {
+    'name': '@storybook/react-vite',
+    options: {
+      builder: {
+        viteConfigPath: 'vite.storybook.config.js'
+      }
+    }
+  },
 
 };
 export default config;
