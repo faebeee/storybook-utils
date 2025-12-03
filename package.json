@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "storybook-utils",
   "private": true,
   "scripts": {
     "build": "turbo run build",
