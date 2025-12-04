@@ -1,18 +1,19 @@
-import { fileURLToPath } from "node:url";
-import { dirname } from "node:path";
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
   stories: [
-    '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'
+    '../../../apps/**/*.stories.@(ts|tsx)',
+    // '../../../packages/**/*.stories.@(ts|tsx)',
+    // '../../../packages/**/*.mdx',
   ],
   addons: [
-    // "storybook-w3c",
-    // '../../../packages/storybook-w3c/lib/manager.tsx'
+    '@storybook/addon-links',
+    '@storybook/addon-a11y',
+    '@storybook/addon-docs',
+    '@storybook/addon-vitest',
     import.meta.resolve('./local-preset.ts')
 
   ],
-  // framework: getAbsolutePath("@storybook/react-vite")
   'framework': {
     'name': '@storybook/react-vite',
     options: {
