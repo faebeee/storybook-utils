@@ -1,11 +1,8 @@
 import React from 'react';
 import { addons, types } from 'storybook/manager-api';
 import { Addon } from './components/Addon';
+import { IDS } from './config';
 
-export enum IDS {
-  ADDON = 'faebeee/storybook-w3c',
-  PANEL = 'storybook-w3c/panel',
-}
 
 addons.register(IDS.ADDON, () => {
   addons.add(IDS.PANEL, {

@@ -8,7 +8,16 @@
   },
   "exports": {
     "./*": "./*",
-    "./manager": "./lib/manager.tsx"
+    "./manager": "./lib/manager.tsx",
+    "./preview": "./lib/preview.tsx"
+  },
+  "dependencies": {
+    "w3c-html-validator": "^2.0.2",
+    "html-validator": "^6.0.1",
+    "html-validate": "^10.4.0",
+    "w3c-validate": "^0.0.2",
+    "node-w3capi": "^2.2.1",
+    "w3validator": "^1.1.1"
   },
   "peerDependencies": {
     "react": ">=18",
