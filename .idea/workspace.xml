@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7658fbf-be4e-4c4c-ba08-84df101c5409" name="Changes" comment="Add initial setup for `storybook-w3c` addon and integrate with Storybook configuration">
-      <change afterPath="$PROJECT_DIR$/packages/storybook-w3c/lib/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/storybook-w3c/lib/preview.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/storybook-w3c/lib/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/storybook-w3c/lib/with-w3c.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/storybook/.storybook/local-preset.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/storybook/.storybook/local-preset.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/storybook/stories/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/storybook/stories/Button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/storybook-w3c/lib/components/Addon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/storybook-w3c/lib/components/Addon.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/storybook-w3c/lib/manager.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/storybook-w3c/lib/manager.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/storybook-w3c/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/storybook-w3c/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +117,8 @@
       <updated>1764775372539</updated>
       <workItem from="1764775373540" duration="1206000" />
       <workItem from="1764776588691" duration="5976000" />
-      <workItem from="1764831798384" duration="2311000" />
+      <workItem from="1764831798384" duration="3879000" />
+      <workItem from="1764838006044" duration="24000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <option name="closed" value="true" />
@@ -142,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764792147117</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add initial setup for `storybook-w3c` addon and integrate with Storybook configuration">
+      <option name="closed" value="true" />
+      <created>1764834137964</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764834137964</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
