@@ -1,5 +1,11 @@
 # storybook-w3c
 
+## 0.3.2
+
+### Patch Changes
+
+- Fix cors. Update error message count
+
 ## 0.3.1
 
 ### Patch Changes

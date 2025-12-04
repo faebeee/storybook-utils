@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { AddonPanel, Table } from 'storybook/internal/components';
+import { AddonPanel, Table,  } from 'storybook/internal/components';
 import { useChannel, useStorybookApi } from 'storybook/manager-api';
 import { EVENTS } from '../config';
 import { ValidationResult } from '../types';
@@ -10,6 +10,7 @@ export type Props = {
 
 export const Addon: FC<Props> = ({ active }) => {
   const api = useStorybookApi();
+  const [requestError, setRequestError] = useState<null | string>(null);
   const [{ code }, setState] = useState({
     code: null
   });
@@ -28,22 +29,30 @@ export const Addon: FC<Props> = ({ active }) => {
       return;
     }
 
-    const url = new URL('https://validator.w3.org/nu/');
-    url.searchParams.set('out', 'json');
-    url.searchParams.set('doctype', 'Inline');
-    const response = await fetch(url, {
-      method: 'POST',
-      body: code,
-      headers: {
-        'Content-Type': 'text/html'
+    setRequestError(null);
+    setValidationResult({ result: null });
+
+    try {
+      const url = new URL('http://html5.validator.nu/');
+      const formData = new FormData();
+      formData.append('out', 'json');
+      formData.append('doctype', 'Inline');
+      formData.append('content', code);
+
+      const response = await fetch(url, {
+        method: 'POST',
+        body: formData,
+      });
+      if (!response.ok) {
+        throw new Error(response.statusText);
       }
-    });
-    if (!response.ok) {
-      throw new Error(response.statusText);
+      const result = (await response.json()) as ValidationResult;
+      api.emit(EVENTS.MESSAGES, { count: result.messages.filter(msg => msg.type === 'error').length });
+      setValidationResult({ result });
+    } catch (e) {
+      console.error(e);
+      setRequestError((e as Error).message);
     }
-    const result = (await response.json()) as ValidationResult;
-    api.emit(EVENTS.MESSAGES, { count: result.messages.length });
-    setValidationResult({ result });
   };
 
   useEffect(() => {
@@ -53,6 +62,7 @@ export const Addon: FC<Props> = ({ active }) => {
 
   return (
     <AddonPanel active={active ?? false}>
+
       <Table>
         {result?.messages.map((message) => (
           <tr>
