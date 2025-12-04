@@ -33,7 +33,7 @@ export const Addon: FC<Props> = ({ active }) => {
     setValidationResult({ result: null });
 
     try {
-      const url = new URL('http://html5.validator.nu/');
+      const url = new URL(`${window.location.protocol}//html5.validator.nu/`);
       const formData = new FormData();
       formData.append('out', 'json');
       formData.append('doctype', 'Inline');

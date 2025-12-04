@@ -1,5 +1,11 @@
 # storybook-w3c
 
+## 0.3.3
+
+### Patch Changes
+
+- Use protocol from host to fetch validation results
+
 ## 0.3.2
 
 ### Patch Changes
