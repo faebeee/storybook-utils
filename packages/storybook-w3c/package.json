@@ -4,9 +4,6 @@
   "version": "0.3.2",
   "author": "faebeee",
   "license": "ISC",
-  "scripts": {
-    "build": "npx tsc"
-  },
   "exports": {
     "./manager": "./lib/manager.tsx",
     "./preview": "./lib/preview.ts"
