@@ -1,7 +1,7 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { AddonPanel, Table } from 'storybook/internal/components';
-import { useAddonState, useChannel, useStorybookApi } from 'storybook/manager-api';
-import { EVENTS, IDS } from '../config';
+import { useChannel, useStorybookApi } from 'storybook/manager-api';
+import { EVENTS } from '../config';
 import { ValidationResult } from '../types';
 
 export type Props = {
@@ -10,15 +10,13 @@ export type Props = {
 
 export const Addon: FC<Props> = ({ active }) => {
   const api = useStorybookApi();
-  const [{ code }, setState] = useAddonState(IDS.ADDON, {
+  const [{ code }, setState] = useState({
     code: null
   });
-  const [{ result }, setValidationResult] = useAddonState<{result: ValidationResult | null}>(IDS.ADDON, {
+  const [{ result }, setValidationResult] = useState<{result: ValidationResult | null}>({
     result: null
   });
 
-
-  // https://storybook.js.org/docs/react/addons/addons-api#usechannel
   useChannel({
     [EVENTS.CODE_UPDATE]: ({ code }) => {
       setState((state) => ({ ...state, code }));
@@ -44,11 +42,12 @@ export const Addon: FC<Props> = ({ active }) => {
       throw new Error(response.statusText);
     }
     const result = (await response.json()) as ValidationResult;
-    api.emit(EVENTS.MESSAGES, {count: result.messages.length});
+    api.emit(EVENTS.MESSAGES, { count: result.messages.length });
     setValidationResult({ result });
   };
 
   useEffect(() => {
+    if (!active) return;
     validate();
   }, [code, active]);
 

@@ -1,5 +1,11 @@
 # storybook-w3c
 
+## 0.3.1
+
+### Patch Changes
+
+- Avoid persistant state for addon
+
 ## 0.3.0
 
 ### Minor Changes
