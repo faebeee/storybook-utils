@@ -47,12 +47,8 @@ export const Addon: FC<Props> = ({ active }) => {
   };
 
   useEffect(() => {
-    if (!active) {
-      return;
-    }
     validate();
   }, [code, active]);
-
 
   return (
     <AddonPanel active={active ?? false}>
