@@ -5,4 +5,5 @@ export enum IDS {
 
 export const EVENTS = {
   CODE_UPDATE: `${IDS.ADDON}/codeUpdate`,
+  MESSAGES: `${IDS.ADDON}/messages`,
 };
