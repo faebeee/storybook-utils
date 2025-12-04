@@ -4,7 +4,6 @@ import { useAddonState, useChannel } from 'storybook/manager-api';
 import { EVENTS, IDS } from '../config';
 import { ValidationResult } from '../types';
 
-
 export type Props = {
   active?: boolean;
 };

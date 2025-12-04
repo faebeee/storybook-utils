@@ -1,16 +1,15 @@
 {
   "name": "storybook-w3c",
   "type": "module",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "faebeee",
   "license": "ISC",
   "scripts": {
     "build": "npx tsc"
   },
   "exports": {
-    "./*": "./*",
     "./manager": "./lib/manager.tsx",
-    "./preview": "./lib/preview.tsx"
+    "./preview": "./lib/preview.ts"
   },
   "publishConfig": {
     "access": "public"

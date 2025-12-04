@@ -1,5 +1,11 @@
 # storybook-w3c
 
+## 0.2.2
+
+### Patch Changes
+
+- Fix exports
+
 ## 0.2.1
 
 ### Patch Changes
