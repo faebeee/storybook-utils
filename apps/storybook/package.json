@@ -6,7 +6,7 @@
     "lint": "eslint ./",
     "dev": "storybook dev -p 6006",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build": "storybook build"
   },
   "peerDependencies": {
     "typescript": "^5.9.3"
