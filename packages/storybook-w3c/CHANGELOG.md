@@ -1,5 +1,11 @@
 # storybook-w3c
 
+## 0.4.1
+
+### Patch Changes
+
+- Fix imports
+
 ## 0.4.0
 
 ### Minor Changes
