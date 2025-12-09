@@ -1,5 +1,11 @@
 # storybook-w3c
 
+## 0.3.4
+
+### Patch Changes
+
+- Add minimal HTML markup do avoid unnecessary validation messages
+
 ## 0.3.3
 
 ### Patch Changes
