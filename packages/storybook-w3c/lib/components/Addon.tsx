@@ -1,22 +1,19 @@
-import React, { FC, useEffect, useState } from 'react';
-import { AddonPanel, Table,  } from 'storybook/internal/components';
-import { useChannel, useStorybookApi } from 'storybook/manager-api';
+import React, { FC, memo, useEffect, useState } from 'react';
+import { AddonPanel, Table } from 'storybook/internal/components';
+import { useChannel } from 'storybook/manager-api';
 import { EVENTS } from '../config';
-import { ValidationResult } from '../types';
+import { useValidation } from '../hooks/use-validation';
 
 export type Props = {
   active?: boolean;
 };
 
-export const Addon: FC<Props> = ({ active }) => {
-  const api = useStorybookApi();
-  const [requestError, setRequestError] = useState<null | string>(null);
+export const Addon: FC<Props> = memo(({ active }) => {
   const [{ code }, setState] = useState({
     code: null
   });
-  const [{ result }, setValidationResult] = useState<{result: ValidationResult | null}>({
-    result: null
-  });
+
+  const { result } = useValidation(code, active);
 
   useChannel({
     [EVENTS.CODE_UPDATE]: ({ code }) => {
@@ -24,45 +21,8 @@ export const Addon: FC<Props> = ({ active }) => {
     }
   });
 
-  const validate = async () => {
-    if (!code) {
-      return;
-    }
-
-    setRequestError(null);
-    setValidationResult({ result: null });
-
-    try {
-      const url = new URL(`${window.location.protocol}//html5.validator.nu/`);
-      const formData = new FormData();
-      formData.append('out', 'json');
-      formData.append('doctype', 'Inline');
-      formData.append('content', code);
-
-      const response = await fetch(url, {
-        method: 'POST',
-        body: formData,
-      });
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-      const result = (await response.json()) as ValidationResult;
-      api.emit(EVENTS.MESSAGES, { count: result.messages.filter(msg => msg.type === 'error').length });
-      setValidationResult({ result });
-    } catch (e) {
-      console.error(e);
-      setRequestError((e as Error).message);
-    }
-  };
-
-  useEffect(() => {
-    if (!active) return;
-    validate();
-  }, [code, active]);
-
   return (
     <AddonPanel active={active ?? false}>
-
       <Table>
         {result?.messages.map((message) => (
           <tr>
@@ -71,8 +31,7 @@ export const Addon: FC<Props> = ({ active }) => {
             <td>{message.extract}</td>
           </tr>
         ))}
-
       </Table>
     </AddonPanel>
   );
-};
+});

@@ -4,7 +4,6 @@ import { addons, types } from 'storybook/manager-api';
 import { Addon } from './components/Addon';
 import { EVENTS, IDS } from './config';
 
-
 addons.register(IDS.ADDON, (api) => {
   addons.add(IDS.PANEL, {
     title: () => {
@@ -24,6 +23,6 @@ addons.register(IDS.ADDON, (api) => {
       return `W3C ${suffix}`;
     },
     type: types.PANEL,
-    render: ({ active }) => <Addon active={active}/>
+    render: ({ active, }) => active ? <Addon active={active}/> : null
   });
 });
