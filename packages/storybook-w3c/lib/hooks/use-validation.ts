@@ -5,7 +5,8 @@ import { ValidationResult } from '../types';
 
 export const useValidation = (code?: string | null, active: boolean = false) => {
   const api = useStorybookApi();
-  const [requestError, setRequestError] = useState<null | string>(null);
+  const [isRequested, setIsRequested] = useState(false);
+  const [requestError, setRequestError] = useState<null | Error>(null);
   const [{ result }, setValidationResult] = useState<{result: ValidationResult | null}>({
     result: null
   });
@@ -20,6 +21,7 @@ export const useValidation = (code?: string | null, active: boolean = false) => 
     const html = `<!DOCTYPE html><html lang="en"><head><title>Title</title></head><body>${code}</body></html>`;
 
     try {
+      setIsRequested(true);
       const url = new URL(`${window.location.protocol}//html5.validator.nu/`);
       const formData = new FormData();
       formData.append('out', 'json');
@@ -38,8 +40,9 @@ export const useValidation = (code?: string | null, active: boolean = false) => 
       setValidationResult({ result });
       console.log(result);
     } catch (e) {
+      setIsRequested(false);
       console.error(e);
-      setRequestError((e as Error).message);
+      setRequestError((e as Error));
     }
   }, [code]);
 
@@ -51,5 +54,5 @@ export const useValidation = (code?: string | null, active: boolean = false) => 
   }, [code, active]);
 
 
-  return { requestError, result };
+  return { requestError, result, isValid: isRequested && result?.messages.length === 0 };
 };

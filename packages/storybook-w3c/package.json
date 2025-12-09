@@ -1,7 +1,7 @@
 {
   "name": "storybook-w3c",
   "type": "module",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "author": "faebeee",
   "license": "ISC",
   "exports": {

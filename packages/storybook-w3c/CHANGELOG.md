@@ -1,5 +1,11 @@
 # storybook-w3c
 
+## 0.4.0
+
+### Minor Changes
+
+- Add notification if no validation errors occured
+
 ## 0.3.4
 
 ### Patch Changes
