@@ -1,10 +1,11 @@
 {
   "name": "storybook-w3c",
   "type": "module",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "author": "faebeee",
   "license": "ISC",
   "exports": {
+    "./package.json": "./package.json",
     "./manager": "./lib/manager.tsx",
     "./preview": "./lib/preview.ts"
   },

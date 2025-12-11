@@ -1,5 +1,11 @@
 # storybook-w3c
 
+## 0.4.2
+
+### Patch Changes
+
+- Add package.json to module export
+
 ## 0.4.1
 
 ### Patch Changes
