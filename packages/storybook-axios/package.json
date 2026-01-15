@@ -20,14 +20,11 @@
   ],
   "exports": {
     "./manager": "./lib/manager.ts",
-    "./decorator": "./lib/decorator.ts"
+    "./decorator": "./lib/decorator.ts",
+    "./package.json": "./package.json"
   },
   "author": "faebeee",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/faebeee/storybook-axios"
-  },
   "peerDependencies": {
     "axios": "^1.12.2",
     "react": ">=18",
