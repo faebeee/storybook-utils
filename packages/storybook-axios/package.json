@@ -23,6 +23,9 @@
     "./decorator": "./lib/decorator.ts",
     "./package.json": "./package.json"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "faebeee",
   "license": "ISC",
   "peerDependencies": {
