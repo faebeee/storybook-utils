@@ -15,9 +15,9 @@ export type Props = {
 export const Addon: FC<Props> = ({ active }) => {
   const [entries, setEntries] = useState<ListEntry[]>([]);
   const [config, setConfig] = useState<AxiosMockHandlersConfig[]>([]);
-  const onRequest = (data:AxiosRequestConfig) => setEntries(entries => [...entries, { type: TYPES.REQ, data }]);
-  const onResponse = (data:AxiosResponse) => setEntries(entries => [...entries, { type: TYPES.RES, data }]);
-  const onResponseError = (data:AxiosError) => setEntries(entries => [...entries, { type: TYPES.RES_ERR, data }]);
+  const onRequest = (data: AxiosRequestConfig) => setEntries(entries => [...entries, { type: TYPES.REQ, data }]);
+  const onResponse = (data: AxiosResponse) => setEntries(entries => [...entries, { type: TYPES.RES, data }]);
+  const onResponseError = (data: AxiosError) => setEntries(entries => [...entries, { type: TYPES.RES_ERR, data }]);
   const onStoryChanged = () => {
     setEntries([]);
     setConfig([]);
@@ -43,18 +43,17 @@ export const Addon: FC<Props> = ({ active }) => {
       addons.getChannel().removeListener(EVENTS.RESPONSE, onResponse);
       addons.getChannel().removeListener(EVENTS.RESPONSE_ERROR, onResponseError);
     };
-    // biome-ignore lint/correctness/useExhaustiveDependencies : ignoring for now
   }, [onRequest, onResponse, onResponseError]);
 
   return (
     <AddonPanel active={active}>
       <div style={{ padding: '16px' }}>
-        {config.length > 0 && <ConfigHeader configs={config}/>}
+        {config.length > 0 && <ConfigHeader configs={config} />}
         {entries.length === 0 ? (
           <div>No requests made yet</div>
         ) : (
           <>
-            <List list={entries}/>
+            <List list={entries} />
           </>
         )}
       </div>

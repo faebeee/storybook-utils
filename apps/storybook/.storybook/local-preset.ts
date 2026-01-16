@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 export function previewAnnotations(entry = []) {
   return [
     ...entry,
+    fileURLToPath(import.meta.resolve('../../../packages/storybook-axios/lib/preview.ts')),
     fileURLToPath(import.meta.resolve('../../../packages/storybook-w3c/lib/preview.ts')),
   ];
 }
