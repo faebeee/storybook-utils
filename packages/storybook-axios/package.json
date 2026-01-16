@@ -4,9 +4,8 @@
   "description": "Axios inspection for storybook",
   "version": "2.2.1",
   "scripts": {
-    "lint": "eslint ./src",
-    "format": "eslint ./src --fix",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "publish": "npm publish"
   },
   "keywords": [
     "storybook",
