@@ -1,11 +1,10 @@
 import { DownloadIcon, UploadIcon } from 'lucide-react';
 import React, { useState } from 'react';
-import { Badge, Modal, SyntaxHighlighter, Table } from 'storybook/internal/components';
+import { Button, Badge, Modal, SyntaxHighlighter, Table } from 'storybook/internal/components';
 
 import { type ListEntry, TYPES } from '../types';
-import { Button } from './ui/button';
 
-export type ListProps = {list: ListEntry[]};
+export type ListProps = { list: ListEntry[] };
 
 export const List = ({ list }: ListProps) => {
   const [open, setOpen] = useState(false);
@@ -23,7 +22,7 @@ export const List = ({ list }: ListProps) => {
           type: entry.type,
           data: entry,
           label: `${entry.data.method?.toUpperCase()} ${entry.data.url}`,
-          extra: <UploadIcon style={{ color: 'blue' }}/>
+          extra: <UploadIcon style={{ color: 'blue' }} />
         };
       case TYPES.RES:
         return {
@@ -33,7 +32,7 @@ export const List = ({ list }: ListProps) => {
           url: entry.data.config.url,
           data: entry,
           label: `${entry.data.status} ${entry.data.config.url}`,
-          extra: <DownloadIcon style={{ color: 'green' }}/>
+          extra: <DownloadIcon style={{ color: 'green' }} />
         };
       case TYPES.RES_ERR:
         return {
@@ -43,7 +42,7 @@ export const List = ({ list }: ListProps) => {
           url: entry.data.config?.url,
           data: entry,
           label: `${entry.data.status} ${entry.data.config?.url}`,
-          extra: <DownloadIcon style={{ color: 'red' }}/>
+          extra: <DownloadIcon style={{ color: 'red' }} />
         };
     }
   });
@@ -58,7 +57,7 @@ export const List = ({ list }: ListProps) => {
               item.status}
             {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
             {/* @ts-expect-error */}
-          </Badge>: item.data.data.method?.toUpperCase()}</>
+          </Badge> : item.data.data.method?.toUpperCase()}</>
         </td>
 
         <td>

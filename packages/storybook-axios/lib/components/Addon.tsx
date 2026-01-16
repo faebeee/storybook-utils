@@ -6,7 +6,6 @@ import { addons } from 'storybook/manager-api';
 import { AxiosMockHandlersConfig, EVENTS, type ListEntry, TYPES } from '../types';
 import { ConfigHeader } from './ConfigHeader';
 import { List } from './List';
-import '../styles/globals.css';
 
 export type Props = {
   active: boolean;
