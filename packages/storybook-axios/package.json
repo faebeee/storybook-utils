@@ -2,7 +2,7 @@
   "name": "storybook-axios",
   "type": "module",
   "description": "Axios inspection for storybook",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "publish": "npm publish"
@@ -15,6 +15,7 @@
     "addon",
     "storybook-addons"
   ],
+  "homepage": "https://faebeee.github.io/storybook-utils",
   "exports": {
     "./manager": "./lib/manager.ts",
     "./decorator": "./lib/decorator.ts",

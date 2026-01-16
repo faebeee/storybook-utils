@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button } from "../Button";
 import { getAxios } from './get-axios';
-import { Meta } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { FetchButton } from './FetchButton';
+import AxiosMockAdapter from 'axios-mock-adapter';
 
 export default {
-  title: 'Axios / Examples',
+  title: 'storybook-axios / Examples',
   parameters: {
     layout: 'centered'
   },
@@ -22,8 +23,9 @@ export const FetchExample = () => {
 export const MockedResponse: StoryObj = {
   parameters: {
     axios: {
-      mock: (mock) => {
-        mock
+      mock: (mock: AxiosMockAdapter) => {
+        mock.onGet('/')
+          .reply(200, { message: 'hello world' })
       }
     }
   },

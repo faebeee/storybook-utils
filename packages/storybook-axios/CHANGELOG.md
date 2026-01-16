@@ -1,5 +1,12 @@
 # storybook-axios
 
+## 2.2.2
+
+### Patch Changes
+
+- Update documentation
+- Update documentation
+
 ## 2.2.1
 
 ### Patch Changes
